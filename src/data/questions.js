@@ -1,4 +1,4 @@
-[
+const questions = [
     {
         "id": 1,
         "question": "Con  il  pallone  in  gioco,  un portiere  effettua  con  i  piedi  dei\nsegni  non  autorizzati  sul  terreno  di gioco,  prolungando  le  linee perpendicolari  che delimitano l’area di porta, al fine di meglio orientarsi. L’Arbitro …",
