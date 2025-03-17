@@ -10,6 +10,10 @@ console.log("Opzioni:", questions[currentQuestion]?.optionA, questions[currentQu
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+  // 🛑 AGGIUNGI QUESTO CHECK PRIMA DEL RETURN 🛑
+  if (!questions || questions.length === 0) {
+    return <div className="text-center text-xl font-bold">Caricamento domande...</div>;
+  }
 
   const handleAnswer = (selectedOption) => {
   if (!questions[currentQuestion]) {
