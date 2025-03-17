@@ -43,7 +43,10 @@ export default function App() {
           </h2>
           <div className="mt-4">
             {questions.length > 0 && questions[currentQuestion] && questions[currentQuestion].options ? (
-              questions[currentQuestion].options.map((option, index) => (
+             {questions.length > 0 && questions[currentQuestion] ? (
+  <>
+    <
+ 
                 <button
                   key={index}
                   onClick={() => handleAnswer(index)}
