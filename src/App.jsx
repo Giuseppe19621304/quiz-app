@@ -14,6 +14,8 @@ console.log("Opzioni:", questions[currentQuestion]?.optionA, questions[currentQu
   const handleAnswer = (selectedOption) => {
   if (!questions[currentQuestion]) {
     console.error("Errore: domanda non disponibile!");
+    console.log("Lunghezza array questions:", questions.length);
+console.log("Domanda attuale:", questions[currentQuestion]);
     return;
   }
 
