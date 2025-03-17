@@ -8,17 +8,14 @@ export default function App() {
   const [showScore, setShowScore] = useState(false);
 
   const handleAnswer = (index) => {
-    // Se l'indice della risposta cliccata è quello corretto
     if (index === questions[currentQuestion].answer) {
       setScore(score + 10);
     }
 
-    // Passa alla domanda successiva
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      // Se non ci sono più domande, mostra il punteggio finale
       setShowScore(true);
     }
   };
@@ -42,18 +39,22 @@ export default function App() {
       ) : (
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-lg font-semibold">
-            {questions[currentQuestion].question}
+            {questions.length > 0 && questions[currentQuestion] ? questions[currentQuestion].question : "Caricamento..."}
           </h2>
           <div className="mt-4">
-            {questions[currentQuestion].options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswer(index)}
-                className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300"
-              >
-                {option}
-              </button>
-            ))}
+            {questions.length > 0 && questions[currentQuestion] && questions[currentQuestion].options ? (
+              questions[currentQuestion].options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleAnswer(index)}
+                  className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300"
+                >
+                  {option}
+                </button>
+              ))
+            ) : (
+              <p>Caricamento domande...</p>
+            )}
           </div>
           <p className="mt-2 text-sm text-gray-500">
             Domanda {currentQuestion + 1} di {questions.length}
@@ -63,3 +64,4 @@ export default function App() {
     </div>
   );
 }
+
