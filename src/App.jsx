@@ -7,8 +7,9 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
 
-  const handleAnswer = (index) => {
-    if (index === questions[currentQuestion].correctAnswer) {
+  const handleAnswer = (selectedOption) => {
+    // Confronta la risposta selezionata con la risposta corretta
+    if (questions[currentQuestion].correctAnswer === selectedOption) {
       setScore(score + 10);
     }
 
@@ -43,33 +44,18 @@ export default function App() {
           </h2>
           <div className="mt-4">
             {questions.length > 0 && questions[currentQuestion] ? (
-   <>
-     <button onClick={() => handleAnswer("A")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
-       {questions[currentQuestion].optionA}
-     </button>
-     <button onClick={() => handleAnswer("B")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
-       {questions[currentQuestion].optionB}
-     </button>
-     <button onClick={() => handleAnswer("C")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
-       {questions[currentQuestion].optionC}
-     </button>
-   </>
-) : (
-   <p>Caricamento domande...</p>
-)}
-             {questions.length > 0 && questions[currentQuestion] ? (
-  <>
-    <button onClick={() => handleAnswer("A")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
-      {questions[currentQuestion].optionA}
-    </button>
-    <button onClick={() => handleAnswer("B")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
-      {questions[currentQuestion].optionB}
-    </button>
-    <button onClick={() => handleAnswer("C")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
-      {questions[currentQuestion].optionC}
-    </button>
-  </>
-) : (
+              <>
+                <button onClick={() => handleAnswer("A")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
+                  {questions[currentQuestion].optionA}
+                </button>
+                <button onClick={() => handleAnswer("B")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
+                  {questions[currentQuestion].optionB}
+                </button>
+                <button onClick={() => handleAnswer("C")} className="block w-full text-left px-4 py-2 my-1 bg-gray-200 rounded-lg hover:bg-gray-300">
+                  {questions[currentQuestion].optionC}
+                </button>
+              </>
+            ) : (
               <p>Caricamento domande...</p>
             )}
           </div>
@@ -81,4 +67,3 @@ export default function App() {
     </div>
   );
 }
-
