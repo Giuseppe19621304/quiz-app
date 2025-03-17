@@ -2,7 +2,7 @@ import { useState } from "react";
 import questions from "./data/questions";
 
 export default function App() {
-  console.log("Domande caricate:", questions); // ✅ Log per verificare i dati
+  console.log("Domande caricate:", JSON.stringify(questions, null, 2)); // ✅ Log per verificare i dati
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
