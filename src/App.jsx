@@ -8,7 +8,7 @@ export default function App() {
   const [showScore, setShowScore] = useState(false);
 
   const handleAnswer = (index) => {
-    if (index === questions[currentQuestion].answer) {
+    if (index === questions[currentQuestion].correctAnswer) {
       setScore(score + 10);
     }
 
