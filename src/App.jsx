@@ -3,6 +3,8 @@ import questions from "./data/questions";
 
 export default function App() {
   console.log("Domande caricate:", JSON.stringify(questions, null, 2)); // ✅ Log per verificare i dati
+console.log("Domanda attuale:", questions[currentQuestion]);
+console.log("Opzioni:", questions[currentQuestion]?.optionA, questions[currentQuestion]?.optionB, questions[currentQuestion]?.optionC);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
