@@ -12,11 +12,25 @@ console.log("Opzioni:", questions[currentQuestion]?.optionA, questions[currentQu
   const [showScore, setShowScore] = useState(false);
 
   const handleAnswer = (selectedOption) => {
-    // Confronta la risposta selezionata con la risposta corretta
-    if (questions[currentQuestion].correctAnswer === selectedOption) {
-      setScore(score + 10);
-    }
+  if (!questions[currentQuestion]) {
+    console.error("Errore: domanda non disponibile!");
+    return;
+  }
 
+  console.log("Risposta selezionata:", selectedOption);
+  console.log("Risposta corretta:", questions[currentQuestion]?.correctAnswer);
+
+  if (questions[currentQuestion]?.correctAnswer.trim().toUpperCase() === selectedOption.trim().toUpperCase()) {
+    setScore((prevScore) => prevScore + 10);
+  }
+
+  const nextQuestion = currentQuestion + 1;
+  if (nextQuestion < questions.length) {
+    setCurrentQuestion(nextQuestion);
+  } else {
+    setShowScore(true);
+  }
+};
     const nextQuestion = currentQuestion + 1;
     console.log("currentQuestion:", currentQuestion);
 console.log("Total questions:", questions.length);
