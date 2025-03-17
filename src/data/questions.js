@@ -5752,3 +5752,4 @@
         "correctAnswer": "C"
     }
 ]
+export default questions;
